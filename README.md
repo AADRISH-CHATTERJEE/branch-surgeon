@@ -1,11 +1,13 @@
-# Refactory
+# Branch Surgeon
 
-Local-first AI repository intelligence CLI with an optional FastAPI control plane.
+AI-powered Git workflow assistant for analyzing, reviewing, diagnosing, and repairing branches and code changes. Branch Surgeon helps developers understand complex diffs, detect conflicts and regressions, identify affected code and tests, and get AI-assisted fixes before changes reach production.
+
+Built on **Refactory** — a local-first AI repository intelligence CLI with an optional FastAPI control plane and Next.js UI.
 
 ## Dependency direction
 
 ```
-CLI (Typer + Rich)
+CLI (Typer + Rich) / Next.js UI
   ↓
 Core (settings groups, DI, logging)
   ↓
@@ -24,7 +26,7 @@ Infrastructure adapters
 
 See **[docs/README.md](docs/README.md)** for architecture, pipeline diagrams, API, extension, and contribution guides.
 
-Frontend (Phase 10): **[ui/README.md](ui/README.md)** · blueprint **[docs/frontend-architecture.md](docs/frontend-architecture.md)**
+Frontend: **[ui/README.md](ui/README.md)** · blueprint **[docs/frontend-architecture.md](docs/frontend-architecture.md)**
 
 ## Setup
 
@@ -49,6 +51,21 @@ refactory ai-test
 ```
 
 When authenticated, the CLI optionally downloads `GET /config` at startup and overlays preferences. If unavailable, local settings are used unchanged.
+
+## Local API + UI
+
+```bash
+# Local API
+uvicorn refactory.api.app:app --host 127.0.0.1 --port 8741 --reload
+
+# UI
+cd ui
+npm install
+copy .env.example .env.local
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000). Point the UI at a local Git repository root (no GitHub OAuth required).
 
 ## Configuration
 

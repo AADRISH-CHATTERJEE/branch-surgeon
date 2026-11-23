@@ -1,0 +1,56 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.eggs/
+dist/
+build/
+.venv/
+venv/
+.env
+.python-version
+
+# Test / lint
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+coverage.xml
+
+# Local Refactory index (never commit embeddings / secrets)
+.refactory/
+
+# IDE / agent
+.idea/
+.vscode/
+.cursor/
+*.swp
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models cache (optional local override)
+.cache/
+
+# Local DBs / debug
+*.db
+*.sqlite
+*.sqlite3
+debug-*.log
+
+# Next.js UI
+ui/node_modules/
+ui/.next/
+ui/out/
+ui/.env*.local
+
+# Forge
+.forge/
+.forge-commit-ready
+.forge/project-id
+.forge/hook-version
+.cursor/hooks.json
+.cursor/hooks/
+.cursor/rules/forge-workflow.mdc

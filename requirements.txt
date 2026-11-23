@@ -1,0 +1,18 @@
+# Foundation-phase dependencies only (no GitHub/AI/embeddings SDKs yet)
+typer>=0.12.0
+rich>=13.7.0
+pydantic>=2.7.0
+pydantic-settings>=2.3.0
+python-dotenv>=1.0.1
+loguru>=0.7.2
+GitPython>=3.1.43
+tree-sitter>=0.22.0
+tree-sitter-python>=0.21.0
+
+# Persistence
+sqlalchemy>=2.0.30
+alembic>=1.13.0
+
+# Dev
+pytest>=8.2.0
+pytest-mock>=3.14.0

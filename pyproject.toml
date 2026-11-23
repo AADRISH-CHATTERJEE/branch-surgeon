@@ -1,0 +1,69 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "refactory"
+version = "0.1.0"
+description = "Local-first repository intelligence CLI — architecture foundation"
+readme = "README.md"
+requires-python = ">=3.12"
+license = { text = "MIT" }
+authors = [{ name = "Refactory" }]
+dependencies = [
+  "typer>=0.12.0",
+  "rich>=13.7.0",
+  "pydantic>=2.7.0",
+  "pydantic-settings>=2.3.0",
+  "python-dotenv>=1.0.1",
+  "loguru>=0.7.2",
+  "httpx>=0.27.0",
+  "GitPython>=3.1.43",
+  "tree-sitter>=0.22.0",
+  "tree-sitter-python>=0.21.0",
+  "sentence-transformers>=3.0.0",
+  "sqlalchemy>=2.0.30",
+  "alembic>=1.13.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.2.0",
+  "pytest-mock>=3.14.0",
+  "httpx>=0.27.0",
+]
+backend = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "sqlalchemy>=2.0.30",
+  "alembic>=1.13.0",
+  "python-jose[cryptography]>=3.3.0",
+  "passlib[bcrypt]>=1.7.4",
+  "bcrypt>=4.0.0,<4.1",
+  "email-validator>=2.1.0",
+  "httpx>=0.27.0",
+]
+api = [
+  "fastapi>=0.115.0",
+  "uvicorn[standard]>=0.30.0",
+  "httpx>=0.27.0",
+]
+
+[project.scripts]
+refactory = "refactory.cli.app:app"
+
+[tool.setuptools.packages.find]
+where = [".", "backend"]
+include = ["refactory*", "refactory_backend*"]
+
+[tool.setuptools.package-data]
+refactory = ["py.typed"]
+refactory_backend = ["py.typed"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests", "backend/tests"]
+pythonpath = [".", "backend"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
